@@ -8,6 +8,47 @@
 </head>
 <body>
 
+		<header>
+			<div id="top_conteneur">
+				<img id="logo" src="/images/ZEBRA.png" alt="logo du site">
+				<nav>
+					<ul>
+						<li><%= link_to "Home", root_path %></li>
+						<li><%= link_to "Products", categories_path(:anchor => "category") %>
+							<ul>
+								<div id="product_menu">
+					<table>
+						<tr>
+							<td><img id="logo_sub_menu" src="/images/ZEBRA_0.png" alt=""></td>
+
+							<td rowspan="2">
+								<% @categories.each do |cat| %>
+								<%= link_to cat.name, category_path(cat, :anchor => "category"), class: "menu_on" %>
+
+								<%end%>
+
+							</td>
+							
+						</tr>
+						<tr>							
+							<td><img id="img_sub_menu" src="/images/tie2.png" alt=""></td>								
+						</tr>
+					</table>
+				</div>
+							</ul>
+						</li>
+						<li><a class="nav_on" href="index.html">Portfolio</a></li>					
+						<li><a id="contact" class="nav_on" href="#" onclick="return false;" >Contact</a></li>
+						<li><a  href="#" onclick="return false;" ><img id="img_cart" src="/images/Shape1.png" alt=""></a></li>
+					</ul>
+				</nav>
+
+			</div>
+			<div id="green_layer">
+				<img id="introducing" src="/images/Introducing.png" alt="">
+				<img id="wild_eyes" src="/images/Wildeyes.png" alt="">
+			</div>
+		</header>
 <%= yield %>
 
 </body>

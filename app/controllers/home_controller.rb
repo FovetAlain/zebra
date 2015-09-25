@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		@categories = Item.all
+		@categories = Category.all
+		@items = Item.all
 	end
 end

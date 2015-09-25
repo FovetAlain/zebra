@@ -215,11 +215,10 @@ nav ul li:hover ul
 	position:absolute;
 	top:86px;
 	left:600px;
-	width:480px;
+	width:350px;
 	z-index:11;
 
 }
-
 .menu_on
 {
 	font-family: "open sans",Arial, "Times New Roman", serif;
@@ -228,6 +227,14 @@ nav ul li:hover ul
 	font-size:0.9em;
 }
 
+.menu_on:visited
+{
+	color:white;
+}
+.menu_on:hover
+{
+	color:grey;
+}
 br
 {	
 	margin-top:5px;
@@ -235,7 +242,7 @@ br
 }
 table
 {
-	width:480px;
+	width:350px;
 	height:300px;
 	border-collapse:collapse;
 }
@@ -258,105 +265,4 @@ td[rowspan]
 {
 	padding:55px;
 	margin-left:20px;
-}
-#page_contact
-{
-	display:none;
-	margin-top:50px;
-	margin-bottom:50px;
-}
-#googleMap
-{
-width:1000px;
-height:380px;
-margin:auto;
-border-radius:5px;
-}
-#intro
-{
-background-color:#ececec;
-width:1000px;
-margin:auto;
-border-radius:5px;
-}
-#intro p
-{
-margin-top:50px;
-margin-bottom:20px;
-padding:15px;
-text-align:justify;
-font-size: 0.8em;
-color:grey;
-font-family: "open sans",Arial, "Times New Roman", serif;
-}
-.center
-{
-width:1000px;
-margin:auto;
-
-}
-.formu
-{
-display:inline-block;
-vertical-align:top;
-}
-#address
-{
-display:inline-block;
-vertical-align:top;
-float:right;
-}
-label
-{
-font-size: 0.9em;
-color:grey;
-font-family: "open sans",Arial, "Times New Roman", serif;
-margin-left:20px;
-}
-input
-{
-background-color:#ececec;
-border-radius:5px;
-color:grey;
-}
-textarea
-{
-background-color:#ececec;
-border-radius:5px;
-color:grey;
-resize:none;
-margin-bottom:20px;
-}
-.inquiry
-{
-color:grey;
-font-family: "open sans",Arial, "Times New Roman", serif;
-font-weight:bold;
-margin-bottom:30px;
-}
-.send
-{
-padding-left:10px;
-padding-right:10px;
-padding-top:5px;
-padding-bottom:5px;
-border-radius: 5px;
-text-align:center;
-font-family: "open sans semibold",Arial, "Times New Roman", serif;
-color:white;
-background-color:#e2534b;
-}
-#coordonnee
-{
-color:grey;
-font-family: "open sans",Arial, "Times New Roman", serif;
-font-size: 0.9em;
-}
-#add, #tel, #mel
-{
-display:inline-block;
-vertical-align:top;
-margin-top:3px;
-margin-bottom:12px;
-margin-left:10px;
 }
