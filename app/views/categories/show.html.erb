@@ -1,5 +1,17 @@
+<h3> Category :</h3>
 <div id="category">
-	<h3> Category :</h3>
-		<%= @category.name %>
+	<%= @category.name %> > <br>
+	<%= link_to "<	 Retour", categories_path(:anchor => "category")%>
+</div>
+<div id="main_show">
+	<% @category.items.each do |item| %> 
 
+		<figure>
+			<%=image_tag(item.photo + "_small.jpg") %>
+			<figcaption>
+				<%= item.name %> <br>
+				<span class="price"><%= item.price %> €<span>
+			</figcaption>	
+		</figure>
+	<% end %>
 </div>

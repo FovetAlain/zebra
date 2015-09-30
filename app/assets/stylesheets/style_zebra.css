@@ -37,7 +37,7 @@ li
 	font-family: "open sans",Arial, "Times New Roman", serif;
 	font-size:1.1em;
 	margin-right:40px;
-		height:86px;
+	height:86px;
 }
 #img_cart
 {
@@ -265,4 +265,56 @@ td[rowspan]
 {
 	padding:55px;
 	margin-left:20px;
+}
+#category
+{
+	margin-left: 10px;
+	width: 150px;
+	display:inline-block;
+}
+#main_show
+{
+	display:inline-block;
+	vertical-align: top;
+	width: 900px;
+	margin-bottom: 50px;	
+}
+h3
+{
+	font-family: "open sans",Arial, "Times New Roman", serif;
+	font-size:1.1em;
+	height:40px;
+	margin-bottom: 0;
+}
+figure
+{
+	width: 200px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+}
+figcaption
+{
+	width: 200px;
+	text-align: center;
+}
+figcaption br
+{
+	margin: 0;
+}
+.price
+{
+	font-size:0.9em;
+	color: red;
+}
+#item_show
+{
+	width:800px;
+	display:inline-block;
+}
+#item_prez
+{
+	width: 290px;
+	display: inline-block;
+	vertical-align: top;
 }

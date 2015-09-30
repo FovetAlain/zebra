@@ -1,5 +1,25 @@
-<div id="category">
-	<% @categories.each do |cat| %>
-		<%= cat.name %>
-	<% end %>
-</div>
+	<h3> Category :</h3>
+	<div id="category">
+
+		<% @categories.each do |cat| %>
+		<%= link_to cat.name, category_path(cat, :anchor => "category") %> > <br>
+
+		<% end %>
+	</div>
+	<div id="main_show">
+	
+		<% @categories.each do |cat| %>
+		<% cat.items.each do |item| %> 
+
+		<figure>
+			<%=link_to(image_tag(item.photo + "_small.jpg"), item_path(item, :anchor =>"item_show")) %>
+			<figcaption>
+				<%= item.name %> <br>
+				<span class="price"><%= item.price %> €<span>
+				</figcaption>	
+			</figure>
+			<% end %>
+			
+
+			<% end %>
+		</div>
