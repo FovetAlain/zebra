@@ -1,0 +1,34 @@
+<%= form_for(@item) do |f| %>
+  <ul>
+  <% @item.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :marque %><br />
+    <%= f.text_field :marque %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+    <p>
+    <%= f.label :prix %><br />
+    <%= f.text_field :prix %>
+  </p>
+    <p>
+    <%= f.label :photos %><br />
+    <%= f.text_field :photos %>
+  </p>
+    <p>
+    <%= f.label :tailles %><br />
+    <%= f.text_area :tailles %>
+  </p>
+    <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

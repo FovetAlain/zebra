@@ -14,7 +14,7 @@
 				<nav>
 					<ul>
 						<li><%= link_to "Home", root_path %></li>
-						<li><%= link_to "Products", categories_path(:anchor => "category") %>
+						<li><%= link_to "Products", categories_path() %>
 							<ul>
 								<div id="product_menu">
 					<table>
@@ -23,7 +23,7 @@
 
 							<td rowspan="2">
 								<% @categories.each do |cat| %>
-								<%= link_to cat.name, category_path(cat, :anchor => "category"), class: "menu_on" %>
+								<%= link_to cat.name, category_path(cat), class: "menu_on" %>
 
 								<%end%>
 

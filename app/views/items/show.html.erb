@@ -1,12 +1,34 @@
+<div id="path_item">
+	<%=link_to "Home/", root_path%><%= link_to "category/",categories_path()%><%=link_to @nameCat, category_path(@idCat)%>
+</div>
 <div id="item_show">
+			<%=image_tag(@item.photos[0] + ".jpg") %>
+</div>
+<div id="tiny_photos">	
 
 
-			<%=image_tag(@item.photo + ".jpg") %>
+		<% @item.photos.each do |photo| %>
 
+				<%=image_tag(photo + "_tiny.jpg") %>
 
+		<%end%>
 
 </div>
 <div id="item_prez">
-					<%= @item.name %> 
-				<span class="price"><%= @item.price %> €<span>
+					<%= @item.marque %>
+					<%= @item.description %> 
+				<span class="price"><%= @item.prix %> €<span>
+
 </div>
+<script>
+$(function(){
+
+	$("html, body").animate({scrollTop:$("#item_show").offset().top},50);
+	$("#tiny_photos img").mouseover(function(){
+		big_image_src = $(this).attr("src").split("_tiny").join('');
+		$("#item_show img").attr("src", big_image_src);
+
+	});
+});
+
+</script>

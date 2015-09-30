@@ -1,17 +1,27 @@
+<div id="path_category">
+	<%=link_to "Home/", root_path%><%= link_to "category/",categories_path()%><%=link_to @category.name.downcase, category_path(@category)%> 
+</div>
 <h3> Category :</h3>
 <div id="category">
 	<%= @category.name %> > <br>
-	<%= link_to "<	 Retour", categories_path(:anchor => "category")%>
+	<%= link_to "<	 Retour", categories_path()%>
 </div>
 <div id="main_show">
 	<% @category.items.each do |item| %> 
 
 		<figure>
-			<%=image_tag(item.photo + "_small.jpg") %>
+			<%=link_to(image_tag(item.photos[0] + "_small.jpg"), item_path(item)) %>
 			<figcaption>
-				<%= item.name %> <br>
-				<span class="price"><%= item.price %> €<span>
+				<%= link_to "#{item.marque} \n #{item.description}", item_path(item)%> <br>
+				<span class="price"><%= item.prix %> €<span>
 			</figcaption>	
 		</figure>
 	<% end %>
-</div>
+</div>	
+<script>
+$(function(){
+
+	$("html, body").animate({scrollTop:$("#main_show").offset().top},50);
+
+});
+</script>
