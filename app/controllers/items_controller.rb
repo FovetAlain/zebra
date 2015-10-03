@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 	include ItemsHelper
 	def show
+		@orderItem = OrderItem.new
 		@categories = Category.all
 		@item = Item.find(params[:id])
 		@idCat = @item.category_id

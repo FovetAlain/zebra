@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925130836) do
+ActiveRecord::Schema.define(version: 20151001153716) do
+
+  create_table "carts", force: :cascade do |t|
+    t.decimal  "shipping",   precision: 12, scale: 3, default: 5.9
+    t.decimal  "total",      precision: 12, scale: 3
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -31,5 +38,17 @@ ActiveRecord::Schema.define(version: 20150925130836) do
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id"
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "cart_id"
+    t.decimal  "unit_price", precision: 12, scale: 3
+    t.integer  "taille"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "order_items", ["cart_id"], name: "index_order_items_on_cart_id"
+  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id"
 
 end

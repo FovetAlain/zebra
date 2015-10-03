@@ -1,5 +1,5 @@
 <div id="path_item">
-	<%=link_to "Home/", root_path%><%= link_to "category/",categories_path()%><%=link_to @nameCat, category_path(@idCat)%>
+	<%=link_to "<  Retour", category_path(@idCat)%> <%=link_to "Home/", root_path%><%= link_to "category/",categories_path()%><%=link_to @nameCat, category_path(@idCat)%>
 </div>
 <div id="item_show">
 			<%=image_tag(@item.photos[0] + ".jpg") %>
@@ -15,20 +15,82 @@
 
 </div>
 <div id="item_prez">
-					<%= @item.marque %>
-					<%= @item.description %> 
-				<span class="price"><%= @item.prix %> €<span>
+	<%= @item.marque %><br>
+	<%= @item.description %><br> 
+	<p>Taille :</p>
+	<% @item.tailles.each do |taille| %>
+	<a href="#" onclick="return false;"><span class="taille" id="taille<%=taille%>"><%= taille %></span></a>
+	<%end%> <br>
+
+	<span id="item_price"><%= @item.prix %> €</span><br>
+
+	<a href="" id="add_to_cart" onclick="return false;">Ajouter au panier</a> <br>
+
+
+
+<%= form_for(@orderItem) do |f| %>
+  <ul>
+  <% @orderItem.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :taille %><br />
+    <%= f.number_field :taille ,:id=>"taille_field"%>
+  </p>
+  
+    
+    <%= f.hidden_field :item_id, :value => @item.id%>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p class="flash"><%= flash.notice %></p>
 
 </div>
+
+
 <script>
 $(function(){
+
+	$('.flash').delay(4000).fadeOut();
 
 	$("html, body").animate({scrollTop:$("#item_show").offset().top},50);
 	$("#tiny_photos img").mouseover(function(){
 		big_image_src = $(this).attr("src").split("_tiny").join('');
 		$("#item_show img").attr("src", big_image_src);
+	});
+	$(".taille").click(function(){
+		if (!$("#taille_field").val() == '') // replace dans le style de base la case taille précédemment sélectionnée
+		{
+			id = "taille" + $("#taille_field").val() ;
+			$('#'+id).css("color", "grey");
+			$('#'+id).css("font-size", "1.1em");			
+
+		}
+		$(this).css("color", "black");
+		$(this).css("font-size", "2em");
+		
+		$("#taille_field").val(this.id.split('taille').join(''));
+
+
+	
+		$("#add_to_cart").css("background-color", "black");
+	
+
+	});
+
+	$("#add_to_cart").click(function(){
+
+		if (!$("#taille_field").val() == '') 
+		{
+			
+			$( "#new_order_item" ).submit();
+		}
 
 	});
 });
 
-</script>
+	</script>

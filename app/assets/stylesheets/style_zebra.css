@@ -39,7 +39,7 @@ li
 	margin-right:40px;
 	height:86px;
 }
-#img_cart
+.img_cart
 {
 	vertical-align:bottom;
 }
@@ -240,18 +240,18 @@ br
 	margin-top:5px;
 	margin-bottom:20px;
 }
-table
+#table_index
 {
 	width:350px;
 	height:300px;
 	border-collapse:collapse;
 }
-td
+#top_conteneur td
  {
 	line-height:50px;
 	border: 1px solid black;
 } 
-td[rowspan] 
+#top_conteneur td[rowspan] 
 {
 	vertical-align: middle;
 	text-align:center;
@@ -330,4 +330,45 @@ figcaption br
 	width: 290px;
 	display: inline-block;
 	vertical-align: top;
+	font-size: 1.1em;
+}
+#item_prez form
+{
+	display: none;
+}
+.taille
+{
+	border: 1px solid black;
+	padding:2px;
+}
+#item_price
+{
+	float:right;
+	font-size: 1.2em;
+}
+#add_to_cart
+{
+	float: right;
+	background-color: grey;
+	padding:10px;
+	color: white;
+}
+.flash
+{
+	font-size: 0.9em;
+	color: black;
+	height: 40px;
+	border-radius: 5px;
+	width: 340px;
+}
+#cart_show table
+{
+	margin-top: 50px;
+	margin-bottom: 100px;
+	border-collapse: collapse;
+}
+#cart_show td
+{
+	border: 1px solid black;
+	padding: 10px;
 }
