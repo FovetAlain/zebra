@@ -1,15 +1,28 @@
 class ItemsController < ApplicationController
 	include ItemsHelper
+	  before_filter :admin, only: [:new, :create]
+
+def admin
+  if logged_in?
+    unless current_user.username == "admin"
+      redirect_to root_path
+      return false
+    end
+  else
+    redirect_to root_path
+  end
+end
+
 	def show
 		@orderItem = OrderItem.new
-		@categories = Category.all
+	
 		@item = Item.find(params[:id])
 		@idCat = @item.category_id
 		@cat = Category.find(@idCat) 
 		@nameCat = @cat.name.downcase
 	end
 	def new
-		@categories = Category.all
+	
 		@item = Item.new
 	end
 	def create

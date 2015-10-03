@@ -37,9 +37,17 @@
 				</div>
 							</ul>
 						</li>				
-						<li><a id="contact" class="nav_on" href="#" onclick="return false;" >Contact</a></li>
 						<li><%= link_to (image_tag ("/images/Shape1.png"), class: "img_cart"), cart_path() %>
 						<%= render 'layouts/cart_text' %></li>
+						<li id="utilisateur">
+							<% if logged_in? %>
+          						<%= "Bonjour #{current_user.username}" %>
+						          <%= link_to "/ log out", logout_path %>
+						    <% else %>
+						    	 <%= link_to "( sign in /", new_user_path %>
+						          <%= link_to "log in )", login_path %>
+						    <% end %>
+						</li>
 					</ul>
 				</nav>
 

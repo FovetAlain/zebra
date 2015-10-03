@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001153716) do
+ActiveRecord::Schema.define(version: 20151003212257) do
 
   create_table "carts", force: :cascade do |t|
     t.decimal  "shipping",   precision: 12, scale: 3, default: 5.9
@@ -50,5 +50,16 @@ ActiveRecord::Schema.define(version: 20151001153716) do
 
   add_index "order_items", ["cart_id"], name: "index_order_items_on_cart_id"
   add_index "order_items", ["item_id"], name: "index_order_items_on_item_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username",         null: false
+    t.string   "email",            null: false
+    t.string   "crypted_password", null: false
+    t.string   "salt",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
