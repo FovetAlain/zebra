@@ -14,11 +14,14 @@
 ActiveRecord::Schema.define(version: 20151003212257) do
 
   create_table "carts", force: :cascade do |t|
-    t.decimal  "shipping",   precision: 12, scale: 3, default: 5.9
+    t.decimal  "shipping",   precision: 12, scale: 3
     t.decimal  "total",      precision: 12, scale: 3
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.integer  "user_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +57,9 @@ ActiveRecord::Schema.define(version: 20151003212257) do
   create_table "users", force: :cascade do |t|
     t.string   "username",         null: false
     t.string   "email",            null: false
+    t.string   "rue",              null: false
+    t.string   "cp",               null: false
+    t.string   "ville",            null: false
     t.string   "crypted_password", null: false
     t.string   "salt",             null: false
     t.datetime "created_at"

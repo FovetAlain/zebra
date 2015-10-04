@@ -28,10 +28,26 @@
 	<% end %>
 	</table>
 <% end %>
+<% if @order_items.size != 0 %>
+<table id="total">
+	<tr>
+		<td>frais de port :</td>
+	 	<td><%= @shipping %> €</td>
+	</tr>
+	<tr>
+		<td>total : </td>
+		<td><%= @total %> €</td>
+	</tr>
+</table>
+<%= link_to "Commander", cart_path, :method => :put, class: "command" %>
+<%end%>
+
 </div>
 <script>
 $(function(){
-	$("html, body").animate({scrollTop:$("#cart_show").offset().top},50);
+
+			$("header").css("height", "85px");
+	$("#green_layer").hide();
 });
 </script>
 

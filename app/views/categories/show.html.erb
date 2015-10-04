@@ -12,7 +12,8 @@
 		<figure>
 			<%=link_to(image_tag(item.photos[0] + "_small.jpg"), item_path(item)) %>
 			<figcaption>
-				<%= link_to "#{item.marque} \n #{item.description}", item_path(item)%> <br>
+				<%= link_to item.marque, item_path(item)%> <br>
+				<%= link_to item.description, item_path(item)%> <br>
 				<span class="price"><%= item.prix %> €<span>
 			</figcaption>	
 		</figure>
@@ -22,6 +23,8 @@
 $(function(){
 
 	$("html, body").animate({scrollTop:$("#main_show").offset().top},50);
+			$("header").css("height", "85px");
+	$("#green_layer").hide();
 
 });
 </script>

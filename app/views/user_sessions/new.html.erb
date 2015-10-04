@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<h1>Connection</h1>
 
 <%= form_tag user_sessions_path, method: :post do %>
   <div class="field">
@@ -17,3 +17,10 @@
 <% end %>
 
 <%= link_to 'Back', root_path %>
+
+<script>
+$(function(){
+        $("header").css("height", "85px");
+  $("#green_layer").hide();
+});
+</script>

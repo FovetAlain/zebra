@@ -47,12 +47,7 @@ a:link
 {
 	text-decoration: none;
 }
-a:visited {
-	color:grey;
-}
-a{
-	color:grey;
-}
+
 a:active {
 	text-decoration: none;
 }
@@ -364,7 +359,6 @@ figcaption br
 #cart_show table
 {
 	margin-top: 50px;
-	margin-bottom: 100px;
 	border-collapse: collapse;
 }
 #cart_show td
@@ -372,7 +366,21 @@ figcaption br
 	border: 1px solid black;
 	padding: 10px;
 }
-#utilisateur
+#cart_show
 {
-	
+	margin-bottom: 300px;
+}
+#total
+{
+	position:absolute;
+	right:160px;
+}
+.command
+{
+	position: relative;	
+	top:200px;
+	left:820px;
+	background-color: black;
+	padding:10px;
+	color: white;
 }
