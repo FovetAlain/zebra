@@ -2,6 +2,8 @@ class SorceryCore < ActiveRecord::Migration
   def change
     create_table :users do |t|
     	t.string :username,         :null => false
+      t.string :nom,            :null => false
+      t.string :prenom,            :null => false
       t.string :email,            :null => false
       t.string :rue,            :null => false
       t.string :cp,            :null => false

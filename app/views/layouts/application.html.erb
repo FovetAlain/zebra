@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+			
 		<header>
+
 			<div id="top_conteneur">
 				<img id="logo" src="/images/ZEBRA.png" alt="logo du site">
 				<nav>
 					<ul>
-						<li><%= link_to "Home", root_path %></li>
-						<li><%= link_to "Products", categories_path() %>
+						<li><%= link_to "Accueil", root_path %></li>
+						<li><%= link_to "Articles", categories_path() %>
 							<ul>
 								<div id="product_menu">
 					<table id="table_index">
@@ -39,13 +40,14 @@
 						</li>				
 						<li><%= link_to (image_tag ("/images/Shape1.png"), class: "img_cart"), cart_path() %>
 						<%= render 'layouts/cart_text' %></li>
+						<li><%= link_to "Compte", accounts_path %></li>
 						<li id="utilisateur">
 							<% if logged_in? %>
           						<%= "Bonjour #{current_user.username}" %>
-						          <%= link_to "/ log out", logout_path %>
+						          <%= link_to "/ Déconnection", logout_path %>
 						    <% else %>
-						    	 <%= link_to "( sign in /", new_user_path %>
-						          <%= link_to "log in )", login_path %>
+						    	 <%= link_to "( Enregistrer /", new_user_path %>
+						          <%= link_to "Connecter )", login_path %>
 						    <% end %>
 						</li>
 					</ul>
@@ -57,8 +59,9 @@
 				<img id="wild_eyes" src="/images/Wildeyes.png" alt="">
 			</div>
 		</header>
-		
-
+<% if notice.present? %>
+	<p class="flash"><strong><%= flash.notice %></strong></p>	
+<% end %>
 <%= yield %>
 		<footer>
 			<div id="foot_conteneur">
@@ -72,3 +75,8 @@
 		</footer>
 </body>
 </html>
+<script>
+$(function(){
+	$('.flash').delay(4000).fadeOut();
+});
+</script>

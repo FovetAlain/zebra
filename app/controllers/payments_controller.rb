@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
 
   def update
 	session.delete(:cart_id)  
+	flash.notice = "Commande validée"
 	redirect_to root_path
   end
 end

@@ -1,5 +1,9 @@
-<p>Choix réglement :</p>
-<%= link_to "Commander", payment_path, :method => :put%>
+<div id="payment_show">
+
+	<h1>Réglement </h1>
+	<%= link_to (image_tag ("paypal.jpg"), class: "paypal" ), payment_path, :method => :put%>
+
+</div>
 <script>
 $(function(){
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'accounts/show'
+
   get 'payments/index'
 
   get 'carts/show'
@@ -16,8 +18,9 @@ Rails.application.routes.draw do
   resource :cart, only: [:show, :update]
   resources :users
   resources :user_sessions, only: [ :new, :create, :destroy ]
-
+  resources :accounts, only: [:index, :show]
   get 'login'  => 'user_sessions#new'
+
   get 'logout' => 'user_sessions#destroy'
   get 'payment' => 'payments#index'
   put 'payment' => 'payments#update'

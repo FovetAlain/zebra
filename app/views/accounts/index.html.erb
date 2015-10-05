@@ -1,0 +1,25 @@
+<div id="account">
+<h1>Compte</h1>
+<%= @user.username %><br>
+<%= link_to "Editer le compte", edit_user_path(@user)%>
+
+<h2>Toutes les commandes</h2>
+<table>
+	<% @user.carts.each_with_index do |cart, index| %>
+		<tr>
+			<td><%= link_to ("Commande n° #{index +1}"), account_path(cart) %> </td>
+			<td><%=cart.total %> €</td>
+			<td>Le <%=cart.created_at.strftime("%d %b. %Y") %></td>
+			<td>à <%=cart.created_at.strftime("%H H %M") %></td>
+		</tr>
+	<% end %> 
+</table>
+</div>
+
+<script>
+$(function(){
+
+			$("header").css("height", "85px");
+	$("#green_layer").hide();
+});
+</script>

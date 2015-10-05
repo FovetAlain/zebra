@@ -36,7 +36,7 @@
   </ul>
   <p>
     <%= f.label :taille %><br />
-    <%= f.number_field :taille ,:id=>"taille_field"%>
+    <%= f.text_field :taille ,:id=>"taille_field"%>
   </p>
   
     
@@ -47,7 +47,7 @@
   </p>
 <% end %>
 
-<p class="flash"><%= flash.notice %></p>
+
 
 </div>
 
@@ -55,9 +55,6 @@
 <script>
 $(function(){
 
-	$('.flash').delay(4000).fadeOut();
-
-	$("html, body").animate({scrollTop:$("#item_show").offset().top},50);
 	$("#tiny_photos img").mouseover(function(){
 		big_image_src = $(this).attr("src").split("_tiny").join('');
 		$("#item_show img").attr("src", big_image_src);

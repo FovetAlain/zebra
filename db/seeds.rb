@@ -16,5 +16,9 @@ Item.create! id: 1, marque: "BALDESSARINI", description: "Costume Baldessarini S
 Item.create! id: 2, marque: "LANIFICIO F.LLI CERRUTI", description: "Costume Lanificio F.lli Cerruti", prix: 369.99, tailles: [46,48,52,54,56,60,62], photos:["veste2"], category_id: 1
 Item.create! id: 3, marque: "LANIFICIO F.LLI CERRUTI", description: "Costume Lanificio F.lli Cerruti", prix: 309.99, tailles: [46,48,50,52,54,56,58,60,62], photos:["veste3"], category_id: 1
 Item.create! id: 4, marque: "DEVRED", description: "Veste homme pure laine unie", prix: 159.99, tailles: [46,48,50,52,54,56,58,60,62], photos:["veste4"], category_id: 1
+Item.create! id: 5, marque: "EVISU", description: "Jeans MEN'S MAIN STRAIGHT ADAM JEANS", prix: 269, tailles: ["w29"], photos:["jean1", "jean1_1", "jean1_2", "jean1_3"], category_id: 3
+Item.create! id: 6, marque: "DIESEL", description: "Chemise Ml Wearny Diesel Marine", prix: 149, tailles: ["L", "XL"], photos:["chemise1"], category_id: 2
+Item.create! id: 7, marque: "MOMA", description: "Chaussures A Lacets MOMA Mustang Cuir Homme ", prix: 350, tailles: [40,43,44], photos:["chaussure1", "chaussure1_1", "chaussure1_2", "chaussure1_3"], category_id: 4
+
 
 

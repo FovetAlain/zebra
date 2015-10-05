@@ -1,0 +1,33 @@
+<div id="account_show">
+<table> 
+	<tr>
+		<th></th>
+		<th>Marque</th>
+		<th>Modèle</th>
+		<th>Taille</th>
+		<th>Prix</th>
+		<th></th>
+	</tr>
+	<% @commande.order_items.each do |order_item| %>
+		<tr>
+			<td>
+			<%=image_tag(order_item.item.photos[0] + "_tiny.jpg") %> </td>
+			
+			<td><%= order_item.item.marque %></td>
+			<td><%= order_item.item.description %></td>
+			<td>taille : <%= order_item.taille %></td>
+			<td><%= order_item.item.prix %> €</td>
+</tr>
+
+	<% end %>
+	</table>
+
+	<%= link_to "< Retour", accounts_path %>
+</div>
+<script>
+$(function(){
+
+			$("header").css("height", "85px");
+	$("#green_layer").hide();
+});
+</script>

@@ -4,7 +4,7 @@ class CreateOrderItems < ActiveRecord::Migration
       t.references :item, index: true, foreign_key: true
       t.references :cart, index: true, foreign_key: true
       t.decimal :unit_price, precision: 12, scale: 3
-      t.integer :taille
+      t.text :taille
       
 
       t.timestamps null: false

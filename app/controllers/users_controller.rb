@@ -57,7 +57,7 @@ end
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Compte créé avec succès.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -72,7 +72,7 @@ end
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Compte modifié avec succès.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -86,7 +86,7 @@ end
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Compte supprimé avec succès.' }
       format.json { head :no_content }
     end
   end
@@ -99,6 +99,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :rue, :cp, :ville, :password, :password_confirmation)
+      params.require(:user).permit(:username, :nom, :prenom, :email, :rue, :cp, :ville, :password, :password_confirmation)
     end
 end

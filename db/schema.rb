@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151003212257) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carts", force: :cascade do |t|
     t.decimal  "shipping",   precision: 12, scale: 3
     t.decimal  "total",      precision: 12, scale: 3
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151003212257) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -40,22 +43,24 @@ ActiveRecord::Schema.define(version: 20151003212257) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "items", ["category_id"], name: "index_items_on_category_id"
+  add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "cart_id"
     t.decimal  "unit_price", precision: 12, scale: 3
-    t.integer  "taille"
+    t.text     "taille"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "order_items", ["cart_id"], name: "index_order_items_on_cart_id"
-  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id"
+  add_index "order_items", ["cart_id"], name: "index_order_items_on_cart_id", using: :btree
+  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",         null: false
+    t.string   "nom",              null: false
+    t.string   "prenom",           null: false
     t.string   "email",            null: false
     t.string   "rue",              null: false
     t.string   "cp",               null: false
@@ -66,6 +71,6 @@ ActiveRecord::Schema.define(version: 20151003212257) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
