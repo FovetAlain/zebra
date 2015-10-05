@@ -2,10 +2,7 @@
 
 			<div id="promotion">
 				<div id="promotion_conteneur">
-					<img class ="img_promo" src="/images/promo1.png" alt="">
-					<img class ="img_promo" src="/images/promo2.png" alt="">
-					<img class ="img_promo" src="/images/promo3.png" alt="">
-					<img src="/images/promo4.png" alt="">
+					<%= link_to (image_tag "promo.jpg", class: "img_promo"), category_path(@promo[0]) %>
 				</div>
 			</div>
 			<div id="categorie">
@@ -14,15 +11,11 @@
 			</div>
 			<div id="product">
 			<img id ="levis_img" src="/images/levistarekreda.png" alt="">
-				<img id ="main_img" src="/images/Layer7.png" alt="">
-				<h1>Mens Levis Jeans-071</h1>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised</p>
-				<div id="rate">Rate : <b>$ 61.99</b></div>
-				<img id="first_sub_img" src="/images/Layer7copy.png" alt="">
-				<img class ="sub_img" src="/images/Layer7copy.png" alt="">
-				<img class ="sub_img" src="/images/Layer7copy.png" alt="">
-				<img class ="sub_img" src="/images/Layer7copy.png" alt="">
-				<img class ="sub_img" src="/images/Layer7copy.png" alt="">
+				<%= link_to (image_tag "Layer7.png", class: "main_img"), item_path(8)%> 
+				<h1><%= link_to "Jean Levis 501 Homme", item_path(8) %></h1>
+				<p><%= link_to "En 1873, Levi Strauss et Jacob Davis entreprirent de créer des pantalons à toute épreuve pour les travailleurs manuels. Ils associèrent une toile denim à des rivets et inventèrent le tout premier blue-jean Levi’s® : le célèbre 501® Original.", item_path(8) %></p>
+				<div id="rate">Prix : <b>69.30 €</b></div>
+
 			</div>
 		</section>
 		

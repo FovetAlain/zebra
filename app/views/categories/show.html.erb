@@ -1,5 +1,5 @@
 <div id="path_category">
-	<%= link_to "<	 Retour", categories_path()%>	<%=link_to "Home/", root_path%><%= link_to "category/",categories_path()%><%=link_to @category.name.downcase, category_path(@category)%> 
+	<%= link_to "<	 Retour", categories_path()%>	<%=link_to "Home / ", root_path%><%= link_to "category / ",categories_path()%><%=link_to @category.name.downcase, category_path(@category)%> 
 </div>
 <h3> Category :</h3>
 <div id="category">
@@ -14,9 +14,41 @@
 			<figcaption>
 				<%= link_to item.marque, item_path(item)%> <br>
 				<%= link_to item.description, item_path(item)%> <br>
-				<span class="price"><%= item.prix %> €<span>
+				<% if item.promotion == nil %>
+				<span class="price"><%= item.prix %> €</span>
+				<% else %>
+				<% @price_before_promo = (item.prix * item.promotion/100) + item.prix %>
+					<s><%= @price_before_promo %> € </s><br>
+				
+					- <%= item.promotion %> % de remise <br>
+					<span class="price"><%= item.prix %> €</span>
+					
+					
+					<% end %>
 			</figcaption>	
 		</figure>
+	<% end %>
+
+		<% if @category.name == "Promotions" %>
+			<% @items.each do |item| %> 
+
+		<figure>
+			<%=link_to(image_tag(item.photos[0] + "_small.jpg"), item_path(item)) %>
+			<figcaption>
+				<%= link_to item.marque, item_path(item)%> <br>
+				<%= link_to item.description, item_path(item)%> <br>
+
+				<% @price_before_promo = (item.prix * item.promotion/100) + item.prix %>
+					<s><%= @price_before_promo %> € </s><br>
+				
+					- <%= item.promotion %> % de remise <br>
+					<span class="price"><%= item.prix %> €</span>
+					
+					
+					
+			</figcaption>	
+		</figure>
+		<% end %>
 	<% end %>
 </div>	
 <script>

@@ -1,5 +1,5 @@
 <div id="path_item">
-	<%=link_to "<  Retour", category_path(@idCat)%> <%=link_to "Home/", root_path%><%= link_to "category/",categories_path()%><%=link_to @nameCat, category_path(@idCat)%>
+	<%=link_to "<  Retour", category_path(@idCat)%> <%=link_to "Home / ", root_path%><%= link_to "category / ",categories_path()%><%=link_to @nameCat, category_path(@idCat)%>
 </div>
 <div id="item_show">
 			<%=image_tag(@item.photos[0] + ".jpg") %>
@@ -22,8 +22,13 @@
 	<a href="#" onclick="return false;"><span class="taille" id="taille<%=taille%>"><%= taille %></span></a>
 	<%end%> <br>
 
-	<span id="item_price"><%= @item.prix %> €</span><br>
-
+	<% if @item.promotion == nil %>
+		<span class="item_price"><%= @item.prix %> €</span><br>
+	<% else %>
+		<s class="item_price"><%= @item.prix %> €</s><br>
+		<span class="item_price">- <%= @item.promotion %> % de remise </span><br>
+		<span class="item_price"><%= @item.prix_after %> €</span><br>
+	<% end %>
 	<a href="" id="add_to_cart" onclick="return false;">Ajouter au panier</a> <br>
 
 

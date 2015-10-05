@@ -16,13 +16,17 @@ end
 
 	def index
 		@categories = Category.all
+		
 	end
 	def show
-		@categories = Category.all
+
 		@category = Category.find(params[:id])
+		@items = Item.where.not(promotion: nil)
+
 	end
+
 	def new
-		@categories = Category.all
+
 		@category = Category.new
 	end
 	def create

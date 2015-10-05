@@ -7,8 +7,15 @@ class OrderItemsController < ApplicationController
   	@orderItem = @cart.order_items.new(order_item_params)
   	
   	@orderItem.item_id = @item.id
-  	@orderItem.unit_price = @item.prix
-  	@cart.save
+
+    if @item.promotion == nil
+
+  	   @orderItem.unit_price = @item.prix
+  	else
+      @orderItem.unit_price = @item.prix_after
+    end
+
+    @cart.save
   	session[:cart_id] = @cart.id
     flash.notice = "#{@item.description} a été ajouté au panier !"
 

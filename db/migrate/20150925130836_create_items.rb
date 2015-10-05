@@ -4,8 +4,11 @@ class CreateItems < ActiveRecord::Migration
       t.string :marque
       t.text :description
       t.decimal :prix
+      t.decimal :prix_after
+      t.integer :promotion
       t.text :photos
       t.text :tailles
+      
       t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false

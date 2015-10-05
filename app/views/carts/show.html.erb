@@ -21,7 +21,13 @@
 			<td><%= order_item.item.marque %></td>
 			<td><%= order_item.item.description %></td>
 			<td>taille : <%= order_item.taille %></td>
+			<% if order_item.item.promotion == nil %>
 			<td><%= order_item.item.prix %> €</td>
+			<% else %>
+			<td><%= order_item.item.prix_after %> € <br>
+					remise <%= order_item.item.promotion %> % incluse
+			</td>
+			<%end%>
 <td> <%= link_to "Supprimer", order_item, { data: { confirm: "Etes vous sûr de vouloir supprimer '#{order_item.item.description}' de votre panier ?" }, method: :delete} %></td>
 </tr>
 
