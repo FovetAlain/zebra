@@ -1,16 +1,19 @@
+<h1 class="titleh1">Nouvelle catégorie</h1>
+
 <%= form_for(@category) do |f| %>
-  <ul>
-  <% @category.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
+  <% if @category.errors.any? %>      
+      <% @category.errors.each do |message, error| %>
+         <p class="titre_erreur">- <%= error %></p>
+      <% end %>
+
   <% end %>
-  </ul>
-  <p>
-    <%= f.label :name %><br />
+  <div class="field">
+    <%= f.label :name, value:"Nom de catégorie" %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Valider" %>
+  </div>
 <% end %>
 
 <script>

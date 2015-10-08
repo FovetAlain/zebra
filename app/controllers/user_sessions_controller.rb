@@ -4,15 +4,15 @@ class UserSessionsController < ApplicationController
 
   def create
     if login(params[:email], params[:password])
-      redirect_back_or_to(root_path, notice: 'Logged in successfully.')
+      redirect_back_or_to(root_path, notice: 'Connexion réussie.')
     else
-      flash.now.alert = "Login failed."
+      flash.notice = "Mot de passe et/ou identifiant incorrect."
       render action: :new
     end
   end
 
   def destroy
     logout
-    redirect_to(:users, notice: 'Logged out!')
+    redirect_to(:users, notice: 'Déconnecté.')
   end
 end

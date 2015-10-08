@@ -1,5 +1,5 @@
 <div id="path_item">
-	<%=link_to "<  Retour", category_path(@idCat)%> <%=link_to "Home / ", root_path%><%= link_to "category / ",categories_path()%><%=link_to @nameCat, category_path(@idCat)%>
+	<%=link_to "<  Retour", category_path(@idCat)%> <span class="link"><%=link_to "Zebra / ", root_path%><%= link_to "category / ",categories_path()%><%=link_to @nameCat, category_path(@idCat)%></span>
 </div>
 <div id="item_show">
 			<%=image_tag(@item.photos[0] + ".jpg") %>

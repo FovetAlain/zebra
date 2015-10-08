@@ -16,7 +16,7 @@ end
 	def show
 		@orderItem = OrderItem.new
 	
-		@item = Item.find(params[:id])
+		@item = Item.friendly.find(params[:id])
 		@idCat = @item.category_id
 		@cat = Category.find(@idCat) 
 		@nameCat = @cat.name.downcase
@@ -31,8 +31,17 @@ end
 	  @item.photos=@photos.split(", ")
 	  @taille = params[:item][:tailles]
 	  @item.tailles = @taille.split(",").map { |s| s.to_i }
-	  @item.save
-	  redirect_to item_path(@item)
+
+    	respond_to do |format|
+      if @item.save
+        format.html { redirect_to item_path(@item), notice: 'Article créé avec succès.' }
+        format.json { render :show, status: :created, location: @item }
+      else
+        format.html { render :new }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+	  
 	end
 
 end	

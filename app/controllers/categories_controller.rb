@@ -20,7 +20,7 @@ end
 	end
 	def show
 
-		@category = Category.find(params[:id])
+		@category = Category.friendly.find(params[:id])
 		@items = Item.where.not(promotion: nil)
 
 	end
@@ -31,8 +31,16 @@ end
 	end
 	def create
 	  @category = Category.new(category_params)
-	  @category.save
-	  redirect_to category_path(@category)
+    	respond_to do |format|
+      if @category.save
+        format.html { redirect_to category_path(@category), notice: 'Catégorie créé avec succès.' }
+        format.json { render :show, status: :created, location: @item }
+      else
+        format.html { render :new }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+	  
 	end
 
 end

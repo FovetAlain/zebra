@@ -1,53 +1,62 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2 class="titre_erreur"><%= pluralize(@user.errors.count, "erreur(s)") %> empêche(nt) la création de l'utilisateur :</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      
+      <% @user.errors.each do |message, error| %>
+        <p class="error_code">- <%= error %></p>
       <% end %>
-      </ul>
+ 
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :username %><br>
+    <%= f.label :"nom d'utilisateur" %>
     <%= f.text_field :username %>
+    <br/>
   </div>
     <div class="field">
-    <%= f.label :nom %><br>
+    <%= f.label :nom %>
     <%= f.text_field :nom %>
+    <br/>
   </div>
     <div class="field">
-    <%= f.label :prenom %><br>
+    <%= f.label :prenom %>
     <%= f.text_field :prenom %>
+    <br/>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <br/>
   </div>
     <div class="field">
-    <%= f.label :rue, value: "numéro et nom de rue"%><br>
+    <%= f.label :rue, value: "numéro et nom de rue"%>
     <%= f.text_field :rue %>
+    <br/>
   </div>
     <div class="field">
-    <%= f.label :cp %><br>
+    <%= f.label :"code postal"%>
     <%= f.text_field :cp %>
+    <br/>
   </div>
     <div class="field">
-    <%= f.label :ville %><br>
+    <%= f.label :ville %>
     <%= f.text_field :ville %>
+    <br/>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password %>
     <%= f.password_field :password %>
+    <br/>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
+    <br/>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "Valider" %>
   </div>
 <% end %>

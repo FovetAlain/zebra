@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :items, only: [:show, :new, :create]
   resources :order_items, only: [:create, :destroy]
   resource :cart, only: [:show, :update]
-  resources :users
+  resources :users, except: [:show]
   resources :user_sessions, only: [ :new, :create, :destroy ]
   resources :accounts, only: [:index, :show]
   get 'login'  => 'user_sessions#new'

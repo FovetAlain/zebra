@@ -1,44 +1,56 @@
+<h1 class="titleh1">Nouvel article</h1>
 <%= form_for(@item) do |f| %>
-  <ul>
-  <% @item.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-  </ul>
-  <p>
-    <%= f.label :marque %><br />
+  <% if @item.errors.any? %>
+      <h2 class="titre_erreur"><%= pluralize(@item.errors.count, "erreur(s)") %> empêche(nt) la création de l'utilisateur :</h2>
+
+      <% @item.errors.each do |message, error| %>
+        <p class="error_code">- <%= error %></p>
+      <% end %>
+        <% end %>
+  <div class="field">
+    <%= f.label :marque %>
     <%= f.text_field :marque %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
+    <br/>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
     <%= f.text_area :description %>
-  </p>
-    <p>
-    <%= f.label :prix %><br />
+    <br/>
+  </div>
+  <div class="field">
+    <%= f.label :prix %>
     <%= f.text_field :prix %>
-  </p>
-  <p>
-    <%= f.label :prix_after %><br />
-    <%= f.text_field :prix_after %>
-  </p>
-    <p>
-    <%= f.label :photos %><br />
-    <%= f.text_field :photos %>
-  </p>
-    <p>
-    <%= f.label :tailles %><br />
-    <%= f.text_area :tailles %>
-  </p>
-    <p>
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </p>
-      <p>
-    <%= f.label :promotion %><br />
+    <br/>
+  </div>
+  <div class="field">
+    <%= f.label :promotion %>
     <%= f.text_field :promotion %>
-  </p>
-  <p>
+    <br/>
+  </div>
+  <div class="field">
+    <%= f.label :prix_after %>
+    <%= f.text_field :prix_after %>
+    <br/>
+  </div>
+  <div class="field">
+    <%= f.label :photos %>
+    <%= f.text_field :photos %>
+    <br/>
+  </div>
+  <div class="field">
+    <%= f.label :tailles %>
+    <%= f.text_field :tailles %>
+        <br/>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.text_field :category_id %>
+    <br/>
+  </div>
+  <div class="actions">
     <%= f.submit %>
-  </p>
+    <br/>
+  </div>
 <% end %>
 
 <script>

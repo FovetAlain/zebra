@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20151003212257) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
   create_table "items", force: :cascade do |t|
     t.string   "marque"
     t.text     "description"
@@ -70,6 +72,6 @@ ActiveRecord::Schema.define(version: 20151003212257) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["username", "email"], name: "index_users_on_username_and_email", unique: true
 
 end

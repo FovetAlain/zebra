@@ -1,13 +1,17 @@
 		<section>
 
-			<div id="promotion">
+
 				<div id="promotion_conteneur">
-					<%= link_to (image_tag "promo.jpg", class: "img_promo"), category_path(@promo[0]) %>
+
+					<%= link_to "Remise -10% sur chaussures", category_path(@promo[0]), class: "promo1" %>
+					<%= link_to "Remise -35% sur jeans", category_path(@promo[0]), class: "promo2" %>
+					<%= link_to "Remise -50% sur vestes", category_path(@promo[0]), class: "promo1" %>
 				</div>
-			</div>
+
 			<div id="categorie">
 				<img id ="img_categorie" src="/images/Categories.png" alt="">
 				<img id ="baniere" src="/images/baniere.png" alt="">
+				<div id="une">A LA UNE</div>
 			</div>
 			<div id="product">
 			<img id ="levis_img" src="/images/levistarekreda.png" alt="">

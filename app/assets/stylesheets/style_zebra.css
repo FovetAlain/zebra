@@ -65,21 +65,32 @@ header
 	height:569px;
 	background-image:url("/images/Layer5.png");
 }
-#promotion
-{
-	height:350px;
-}
 #promotion_conteneur
 {
 	width:900px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:80px;
+	margin-bottom: 100px;
 }
-.img_promo
+.promo1, .promo2
 {
-	width: 900px;
-	height: 250px;	
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	background-color:#cf1a2b;
+	color:white;
+	border-radius: 10px;
+	width: 270px;
+	height:70px;
+	font-size: 1.7em;
+	padding: 10px;
+}
+.promo2
+{
+	background-color: white;
+	border: 1px solid black;
+	color: black;
 }
 #introducing
 {
@@ -92,9 +103,15 @@ header
 #wild_eyes
 {
 	position:relative;
-	width:467px;
+	width:270px;
 	top:284px;
-	margin-left:316px;	
+	margin: auto;
+	color: white;
+	font-size: 5em;	
+}
+.black
+{
+	color: grey;
 }
 #categorie
 {
@@ -112,6 +129,13 @@ header
 {
 	width:100%;
 	margin-top:110px;
+}
+#une
+{
+	color: white;
+	font-size: 4.5em; 
+	margin: auto;
+	width: 350px;
 }
 #levis_img
 {
@@ -161,6 +185,11 @@ margin-bottom: 150px;
 {
 	margin-bottom:80px;
 	margin-left:90px;
+}
+.link
+{
+	font-size: 0.9em;
+	margin-left: 20px;
 }
 #foot_conteneur
 {
@@ -275,8 +304,10 @@ br
 {
 	display:inline-block;
 	vertical-align: top;
-	width: 900px;
+	width: 930px;
+	height:1600px;
 	margin-bottom: 50px;	
+	overflow-y: auto;
 }
 h3
 {
@@ -354,7 +385,7 @@ figcaption br
 .flash
 {
 	position:absolute;
-	top:10px;
+	top:0px;
 	left:10px;
 	background-color: rgba(255,255,91,0.5);
 	font-size: 0.9em;
@@ -425,4 +456,54 @@ figcaption br
 {
 	border: 1px solid black;
 	padding: 10px;
+}
+#connection
+{
+	height:500px;
+}
+.titleh1
+{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+}	
+.actions
+{
+	text-align: center;
+}
+.field
+{
+	margin-left: 300px;
+}
+label
+{
+    display: block; /* La balise devient de type block. */
+    float:left;
+    width: 200px;
+}
+.field2
+{
+	margin-left: 355px;
+}
+.actions
+{
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.titre_erreur
+{
+	background-color: #cf1a2b;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 1.3em;
+}
+.error_code
+{
+	color:red;
+}
+.table_liste
+{
+	margin-left: 300px;
+	margin-bottom: 500px;
 }
