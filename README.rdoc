@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application Ruby on rails de site ecommerce.
 
-Things you may want to cover:
+L'application permet d'ajouter des articles et d'avoir une interface de gestions des clients et des paniers.
 
-* Ruby version
+Le client, lui, dispose d'une utilisation classique d'un site de vente en ligne. (Création de compte, modification de compte,ajout de produit, quantité, modification de panier, validation et ordre d'achat).
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+L'application est sécurisée via la gem sorcery qui gère les authentifications utilisateurs.
